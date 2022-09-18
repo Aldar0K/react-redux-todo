@@ -1,7 +1,7 @@
 interface ITodo {
   id: number, 
   text: string, 
-  complete: boolean
+  isCompleted: boolean
 }
 
 export default ITodo;

@@ -7,7 +7,7 @@ interface TodosTitleProps {
 
 const TodosTitle: React.FC<TodosTitleProps> = ({ title }) => {
   return (
-    <h1>{title}</h1>
+    <h1 className='title'>{title}</h1>
   );
 }
 
