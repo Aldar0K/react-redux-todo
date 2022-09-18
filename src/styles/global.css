@@ -1,0 +1,58 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  font-family: 'Roboto', 'Times', sans-serif;
+  font-size: 1rem;
+  background-color: #f6f6f6;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+.wrapper {
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.conteiner {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.main__conteiner {
+  display: flex;
+  padding: 1em;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.hidden {
+  display: none;
+}

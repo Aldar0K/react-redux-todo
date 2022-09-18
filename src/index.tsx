@@ -1,5 +1,6 @@
 import React from 'react';
-import './global.css';
+import './styles/reset.css';
+import './styles/global.css';
 import { createRoot } from 'react-dom/client';
 // import { Provider } from 'react-redux';
 // import { store } from './app/store';
