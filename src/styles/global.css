@@ -10,19 +10,22 @@ html {
 body {
   font-family: 'Roboto', 'Times', sans-serif;
   font-size: 1rem;
-  background-color: #f6f6f6;
+  background-color: #bee6f5;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 2rem;
+  line-height: 2.2rem;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+  line-height: 2rem;
 }
 
 .wrapper {
@@ -33,7 +36,7 @@ h3 {
   overflow: hidden;
 }
 
-.conteiner {
+.container {
   margin: 0 auto;
   max-width: 1200px;
   min-height: 100%;
@@ -43,7 +46,7 @@ h3 {
   flex: 1 1 auto;
 }
 
-.main__conteiner {
+.main__container {
   display: flex;
   padding: 1em;
 

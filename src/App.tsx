@@ -1,13 +1,9 @@
 import React from 'react';
-import logo from './assets/icons/logo.svg';
+import MainPage from './pages/MainPage/MainPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <MainPage />
   );
 }
 
