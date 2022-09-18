@@ -1,13 +1,20 @@
 import React from 'react';
 import './styles.css';
+import TodosTitle from '../../components/Title';
 
-const MainPageTemplate: React.FC = () => {
+interface MainPageTemplateProps {
+  title: string
+}
+
+const MainPageTemplate: React.FC<MainPageTemplateProps> = ({
+  title
+}) => {
   return (
     <div className='wrapper'>
       {/* <Header /> */}
       <main className='main'>
         <div className='container main__container'>
-          <h1>Hello</h1>
+          <TodosTitle title={title} />
         </div>
       </main>
       {/* <Footer /> */}

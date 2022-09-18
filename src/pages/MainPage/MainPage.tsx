@@ -3,7 +3,9 @@ import MainPageTemplate from '../../templates/MainPageTemplate';
 
 const MainPage: React.FC = () => {
   return (
-    <MainPageTemplate />
+    <MainPageTemplate
+      title='Todos'
+    />
   );
 }
 
