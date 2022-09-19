@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './styles.css';
 import ITodo from '../../interfaces/ITodo';
+import TodoInput from '../../components/TodoInput';
+import TodoList from '../../components/TodoList';
+import TodoDashboard from '../../components/TodoDashboard';
 
 const TASKS: ITodo[] = [
   {
@@ -27,7 +30,18 @@ const Todo: React.FC = () => {
   const isTasksExists = tasksList && tasksList.length > 0;
 
   return (
-    <div className='todo'></div>
+    <div className='todo'>
+      <TodoInput value={''} onChange={() => {}} />
+      {isTasksExists &&
+        <TodoList tasksList={tasksList} />
+      }
+      {isTasksExists &&
+        <TodoDashboard
+          amount={tasksList.length}
+          activeFilter={activeFilter}
+        />
+      }
+    </div>
   );
 }
 

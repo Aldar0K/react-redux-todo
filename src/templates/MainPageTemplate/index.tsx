@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import Title from '../../components/Title';
+import Todo from '../../containers/Todo';
 
 interface MainPageTemplateProps {
   title: string
@@ -15,6 +16,7 @@ const MainPageTemplate: React.FC<MainPageTemplateProps> = ({
       <main className='main'>
         <div className='container main__container'>
           <Title title={title} />
+          <Todo />
         </div>
       </main>
       {/* <Footer /> */}
