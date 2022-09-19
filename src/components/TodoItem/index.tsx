@@ -1,4 +1,5 @@
 import React from 'react';
+// import Icon from '../Icon';
 import './styles.css';
 
 interface TodoItemProps {
@@ -9,6 +10,12 @@ interface TodoItemProps {
 const TodoItem: React.FC<TodoItemProps> = ({ text, isCompleted }) => {
   return (
     <li className='todo__item'>
+      {/* <Icon
+        type='dot'
+        width="18"
+        height="18"
+        color='#FFFFFF'
+      /> */}
       <i className={isCompleted ? 'todo__icon todo__icon_completed' : 'todo__icon'} />
       <span className={isCompleted ? 'todo__text todo__text_completed' : 'todo__text'}>
         {text}
