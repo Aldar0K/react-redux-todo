@@ -25,13 +25,18 @@ const TASKS: ITodo[] = [
 
 const Todo: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [taskText, setTaskText] = useState('');
 
   const tasksList = TASKS;
   const isTasksExists = tasksList && tasksList.length > 0;
 
+  const handleInputChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
+    setTaskText(value);
+  }
+
   return (
     <div className='todo'>
-      <TodoInput value={''} onChange={() => {}} />
+      <TodoInput value={taskText} onChange={handleInputChange} />
       {isTasksExists &&
         <TodoList tasksList={tasksList} />
       }

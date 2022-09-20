@@ -3,7 +3,7 @@ import './styles.css';
 
 interface TodoInputProps {
   value: string,
-  onChange: () => void
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const TodoInput: React.FC<TodoInputProps> = ({ value, onChange }) => {
