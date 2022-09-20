@@ -1,14 +1,21 @@
 .todo__icon {
   display: inline-block;
 
-  height: 18px;
-  width: 18px;
+  height: 16px;
+  width: 16px;
 
   background-image: url('../../assets/icons/dot-white.svg');
+  background-position: center;
+  background-size: contain;
 
   transition: .3s;
 }
 
 .todo__icon_completed {
   background-image: url('../../assets/icons/dot-green.svg');
+}
+
+.todo__text_completed,
+.todo__icon_completed {
+
 }
