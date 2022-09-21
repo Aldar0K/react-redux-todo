@@ -5,16 +5,19 @@ import './styles.css';
 
 interface TodoListProps {
   tasksList: ITodo[]
+  removeTask: (id: number) => void
 }
 
-const TodoList: React.FC<TodoListProps> = ({ tasksList }) => {
+const TodoList: React.FC<TodoListProps> = ({ tasksList, removeTask }) => {
   return (
     <ul className='todo__list'>
       {tasksList.map(({ id, text, isCompleted }) => (
         <TodoItem
           key={id}
+          id={id}
           text={text}
           isCompleted={isCompleted}
+          removeTask={removeTask}
         />
       ))}
     </ul>

@@ -5,7 +5,7 @@ import TodoList from '../../components/TodoList';
 import TodoDashboard from '../../components/TodoDashboard';
 import { useDispatch, useSelector } from 'react-redux';
 import ITodo from '../../interfaces/ITodo';
-import { addTask } from '../../slices/todosSlice';
+import { addTodo, removeTodo } from '../../slices/todosSlice';
 
 const Todo: React.FC = () => {
   const dispatch = useDispatch();
@@ -25,14 +25,23 @@ const Todo: React.FC = () => {
   }
 
   const createTask = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
-    if (taskText.length > 0 && key === 'Enter') {
-      dispatch(addTask({
-        id: (new Date()).getTime(),
-        text: taskText,
-        isCompleted: false
-      }));
-      setTaskText('');
+    if (key === 'Enter') {
+      if (taskText.length >= 3) {
+        dispatch(addTodo({
+          id: (new Date()).getTime(),
+          text: taskText,
+          isCompleted: false
+        }));
+        setTaskText('');
+      } else {
+        // TODO create error state and Error component
+        // setError(true)
+      }
     }
+  }
+
+  const removeTask = (id: number) => {
+    dispatch(removeTodo(id));
   }
 
   return (
@@ -43,7 +52,10 @@ const Todo: React.FC = () => {
         onKeyDown={createTask}  
       />
       {isTasksExists &&
-        <TodoList tasksList={tasksList} />
+        <TodoList
+          tasksList={tasksList}
+          removeTask={removeTask}
+        />
       }
       {isTasksExists &&
         <TodoDashboard
