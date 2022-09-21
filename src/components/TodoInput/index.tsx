@@ -4,9 +4,10 @@ import './styles.css';
 interface TodoInputProps {
   value: string,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
-const TodoInput: React.FC<TodoInputProps> = ({ value, onChange }) => {
+const TodoInput: React.FC<TodoInputProps> = ({ value, onChange, onKeyDown }) => {
   return (
     <div className='todo__input-wrapper'>
       {/* <i className='todo__icon'></i> */}
@@ -16,6 +17,7 @@ const TodoInput: React.FC<TodoInputProps> = ({ value, onChange }) => {
         placeholder='Click to add task'
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
     </div>
   );

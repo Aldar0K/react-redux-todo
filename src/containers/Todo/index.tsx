@@ -3,10 +3,13 @@ import './styles.css';
 import TodoInput from '../../components/TodoInput';
 import TodoList from '../../components/TodoList';
 import TodoDashboard from '../../components/TodoDashboard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ITodo from '../../interfaces/ITodo';
+import { addTask } from '../../slices/todosSlice';
 
 const Todo: React.FC = () => {
+  const dispatch = useDispatch();
+
   const [activeFilter, setActiveFilter] = useState('all');
   const [taskText, setTaskText] = useState('');
 
@@ -21,9 +24,24 @@ const Todo: React.FC = () => {
     setTaskText(value);
   }
 
+  const createTask = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
+    if (taskText.length > 0 && key === 'Enter') {
+      dispatch(addTask({
+        id: (new Date()).getTime(),
+        text: taskText,
+        isCompleted: false
+      }));
+      setTaskText('');
+    }
+  }
+
   return (
     <div className='todo'>
-      <TodoInput value={taskText} onChange={handleInputChange} />
+      <TodoInput
+        value={taskText}
+        onChange={handleInputChange}
+        onKeyDown={createTask}  
+      />
       {isTasksExists &&
         <TodoList tasksList={tasksList} />
       }
