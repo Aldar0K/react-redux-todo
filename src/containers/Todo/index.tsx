@@ -5,7 +5,7 @@ import TodoList from '../../components/TodoList';
 import TodoDashboard from '../../components/TodoDashboard';
 import { useDispatch, useSelector } from 'react-redux';
 import ITodo from '../../interfaces/ITodo';
-import { addTodo, removeTodo } from '../../slices/todosSlice';
+import { addTodo, removeTodo, completeTodo } from '../../slices/todosSlice';
 
 const Todo: React.FC = () => {
   const dispatch = useDispatch();
@@ -44,6 +44,10 @@ const Todo: React.FC = () => {
     dispatch(removeTodo(id));
   }
 
+  const completeTask = (id: number) => {
+    dispatch(completeTodo(id));
+  }
+
   return (
     <div className='todo'>
       <TodoInput
@@ -55,6 +59,7 @@ const Todo: React.FC = () => {
         <TodoList
           tasksList={tasksList}
           removeTask={removeTask}
+          completeTask={completeTask}
         />
       }
       {isTasksExists &&
