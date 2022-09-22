@@ -8,7 +8,7 @@ import IRootState from '../../interfaces/IRootState';
 import { addTodo, removeTodo, completeTodo } from '../../slices/todosSlice';
 import { changeFilter } from '../../slices/filterSlice';
 import Filter from '../../interfaces/Filter';
-import ITodo from '../../interfaces/ITodo';
+import { filterTasks } from '../../utils';
 
 const Todo: React.FC = () => {
   const dispatch = useDispatch();
@@ -50,19 +50,6 @@ const Todo: React.FC = () => {
 
   const completeTask = (id: number) => {
     dispatch(completeTodo(id));
-  }
-
-  const filterTasks = (tasksList: ITodo[], filter: Filter) => {
-    switch (filter) {
-      case 'all':
-        return tasksList;
-      case 'completed':
-        return tasksList.filter(task => task.isCompleted);
-      case 'active':
-        return tasksList.filter(task => !task.isCompleted);
-      default:
-        return tasksList;
-    }
   }
 
   const filteredTasks = filterTasks(tasksList, activeFilter);
