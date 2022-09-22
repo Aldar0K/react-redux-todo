@@ -4,7 +4,7 @@ import TodoInput from '../../components/TodoInput';
 import TodoList from '../../components/TodoList';
 import TodoDashboard from '../../components/TodoDashboard';
 import { useDispatch, useSelector } from 'react-redux';
-import ITodo from '../../interfaces/ITodo';
+import IRootState from '../../interfaces/IRootState';
 import { addTodo, removeTodo, completeTodo } from '../../slices/todosSlice';
 
 const Todo: React.FC = () => {
@@ -13,11 +13,7 @@ const Todo: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [taskText, setTaskText] = useState('');
 
-  interface RootState {
-    todos: ITodo[]
-  }
-
-  const tasksList = useSelector((state: RootState) => state.todos);
+  const tasksList = useSelector((state: IRootState) => state.todos);
   const isTasksExists = tasksList && tasksList.length > 0;
 
   const handleInputChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
