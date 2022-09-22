@@ -6,18 +6,26 @@ import TodoDashboard from '../../components/TodoDashboard';
 import { useDispatch, useSelector } from 'react-redux';
 import IRootState from '../../interfaces/IRootState';
 import { addTodo, removeTodo, completeTodo } from '../../slices/todosSlice';
+import { changeFilter } from '../../slices/filterSlice';
+import Filter from '../../interfaces/Filter';
+import ITodo from '../../interfaces/ITodo';
 
 const Todo: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [activeFilter, setActiveFilter] = useState('all');
   const [taskText, setTaskText] = useState('');
-
+  
   const tasksList = useSelector((state: IRootState) => state.todos);
   const isTasksExists = tasksList && tasksList.length > 0;
 
+  const activeFilter = useSelector((state: IRootState) => state.filter);
+
   const handleInputChange = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
     setTaskText(value);
+  }
+
+  const handleFilterChange = (newFilter: Filter) => {
+    dispatch(changeFilter(newFilter));
   }
 
   const createTask = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
@@ -44,6 +52,21 @@ const Todo: React.FC = () => {
     dispatch(completeTodo(id));
   }
 
+  const filterTasks = (tasksList: ITodo[], filter: Filter) => {
+    switch (filter) {
+      case 'all':
+        return tasksList;
+      case 'completed':
+        return tasksList.filter(task => task.isCompleted);
+      case 'active':
+        return tasksList.filter(task => !task.isCompleted);
+      default:
+        return tasksList;
+    }
+  }
+
+  const filteredTasks = filterTasks(tasksList, activeFilter);
+
   return (
     <div className='todo'>
       <TodoInput
@@ -53,15 +76,16 @@ const Todo: React.FC = () => {
       />
       {isTasksExists &&
         <TodoList
-          tasksList={tasksList}
+          tasksList={filteredTasks}
           removeTask={removeTask}
           completeTask={completeTask}
         />
       }
       {isTasksExists &&
         <TodoDashboard
-          amount={tasksList.length}
+          amount={filteredTasks.length}
           activeFilter={activeFilter}
+          onFilterChange={handleFilterChange}
         />
       }
     </div>
