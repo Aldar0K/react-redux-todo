@@ -53,6 +53,7 @@ const Todo: React.FC = () => {
   }
 
   const filteredTasks = filterTasks(tasksList, activeFilter);
+  const leftTasksCounter = tasksList.filter(task => !task.isCompleted).length
 
   return (
     <div className='todo'>
@@ -70,7 +71,7 @@ const Todo: React.FC = () => {
       }
       {isTasksExists &&
         <TodoDashboard
-          amount={filteredTasks.length}
+          amount={leftTasksCounter}
           activeFilter={activeFilter}
           onFilterChange={handleFilterChange}
         />
