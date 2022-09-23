@@ -1,23 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import ITodo from '../interfaces/ITodo';
 
-const defaultState: ITodo[] = [
-  {
-    id: 1,
-    text: 'Learn React',
-    isCompleted: true
-  },
-  {
-    id: 2,
-    text: 'Learn React Router',
-    isCompleted: true
-  },
-  {
-    id: 3,
-    text: 'Learn Redux',
-    isCompleted: false
-  }
-]
+const defaultState: ITodo[] = []
 
 export const todosSlice = createSlice({
   name: 'todos',
