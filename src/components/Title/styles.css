@@ -1,0 +1,11 @@
+.main__title {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 5rem;
+  line-height: 5rem;
+  font-weight: 900;
+  color: rgba(175, 47, 47, 0.15);
+}

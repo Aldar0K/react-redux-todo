@@ -28,20 +28,34 @@ const Todo: React.FC = () => {
     dispatch(changeFilter(newFilter));
   }
 
-  const createTask = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleInputKey = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
     if (key === 'Enter') {
-      if (taskText.length >= 3) {
-        dispatch(addTodo({
-          id: (new Date()).getTime(),
-          text: taskText,
-          isCompleted: false
-        }));
+      if (taskText.trim().length >= 3) {
+        createTask(taskText.trim());
         setTaskText('');
       } else {
         // TODO create error state and Error component
         // setError(true)
       }
     }
+  }
+
+  const handleInputAdd = () => {
+    if (taskText.trim().length >= 3) {
+      createTask(taskText.trim());
+      setTaskText('');
+    } else {
+      // TODO create error state and Error component
+      // setError(true)
+    }
+  }
+
+  const createTask = (text: string) => {
+    dispatch(addTodo({
+      id: (new Date()).getTime(),
+      text: text,
+      isCompleted: false
+    }));
   }
 
   const removeTask = (id: number) => {
@@ -60,7 +74,8 @@ const Todo: React.FC = () => {
       <TodoInput
         value={taskText}
         onChange={handleInputChange}
-        onKeyDown={createTask}  
+        onKeyDown={handleInputKey}
+        onClick={handleInputAdd}
       />
       {isTasksExists &&
         <TodoList
