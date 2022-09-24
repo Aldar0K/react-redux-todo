@@ -14,7 +14,9 @@
 }
 
 .todo__text {
-  font-size: 1.5rem;
+  font-family: 'Indie Flower';
+  font-size: 1.8rem;
+  font-weight: 400;
 }
 
 .todo__text_completed {

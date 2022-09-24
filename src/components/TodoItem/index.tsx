@@ -9,7 +9,13 @@ interface TodoItemProps {
   completeTask: (id: number) => void
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ id, text, isCompleted, removeTask, completeTask }) => {
+const TodoItem: React.FC<TodoItemProps> = ({
+  id,
+  text,
+  isCompleted,
+  removeTask,
+  completeTask
+}) => {
   return (
     <li className='todo__item'>
       <i

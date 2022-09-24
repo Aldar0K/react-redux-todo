@@ -1,3 +1,9 @@
+.todo {
+  display: flex;
+
+  flex-direction: column;
+}
+
 .filter-btn_active {
   background-color: red;
 }
