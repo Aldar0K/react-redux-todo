@@ -1,6 +1,9 @@
 .todo {
   display: flex;
 
+  max-width: 37.5rem;
+  width: 100%;
+
   flex-direction: column;
 }
 

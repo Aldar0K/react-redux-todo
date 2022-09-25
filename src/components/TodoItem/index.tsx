@@ -26,7 +26,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         {text}
       </span>
       <button
-        className='todo__delete'
+        className='button todo__delete'
         onClick={() => removeTask(id)}
       >Delete</button>
     </li>

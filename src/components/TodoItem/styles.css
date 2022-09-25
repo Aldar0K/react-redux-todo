@@ -10,7 +10,7 @@
   gap: 1.5rem;
   
   border-bottom: 1px solid #ededed;
-  cursor: pointer;
+  user-select: none;
 }
 
 .todo__text {
@@ -33,6 +33,7 @@
   background-position: center;
   background-size: contain;
   
+  cursor: pointer;
   transition: .3s;
 }
 

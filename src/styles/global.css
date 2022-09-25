@@ -49,18 +49,14 @@ h3 {
   min-height: 100%;
 }
 
-.main {
-  flex: 1 1 auto;
-}
+.button {
+  padding: .3em .7em;
 
-.main__container {
-  display: flex;
-  padding: 1em;
+  background-color: #cf0f0f;
 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
+  font-family: 'Indie Flower';
+  font-size: 1.2rem;
+  color: #FFFFFF;
 }
 
 .hidden {

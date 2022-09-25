@@ -5,7 +5,6 @@
 }
 
 .todo__input {
-  max-width: 43.75rem;
   width: 100%;
 
   padding: .5em;
@@ -22,12 +21,12 @@
 }
 
 .todo__button {
-  padding: .5em 1em;
+  padding: .3em 1em;
 
   background-color: #007bff;
 
   font-family: 'Indie Flower';
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #FFFFFF;
 }
