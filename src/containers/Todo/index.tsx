@@ -13,7 +13,8 @@ import { filterTasks } from '../../utils';
 const Todo: React.FC = () => {
   const dispatch = useDispatch();
 
-  const [taskText, setTaskText] = useState('');
+  const [taskText, setTaskText] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
   
   const tasksList = useSelector((state: IRootState) => state.todos);
   const isTasksExists = tasksList && tasksList.length > 0;
@@ -28,26 +29,24 @@ const Todo: React.FC = () => {
     dispatch(changeFilter(newFilter));
   }
 
+  const validateInputText = (text: string) => {
+    if (text.trim().length >= 3) {
+      createTask(text.trim());
+      setTaskText('');
+      setError(false);
+    } else {
+      setError(true)
+    }
+  }
+
   const handleInputKey = ({ key }: React.KeyboardEvent<HTMLInputElement>) => {
     if (key === 'Enter') {
-      if (taskText.trim().length >= 3) {
-        createTask(taskText.trim());
-        setTaskText('');
-      } else {
-        // TODO create error state and Error component
-        // setError(true)
-      }
+      validateInputText(taskText)
     }
   }
 
   const handleInputAdd = () => {
-    if (taskText.trim().length >= 3) {
-      createTask(taskText.trim());
-      setTaskText('');
-    } else {
-      // TODO create error state and Error component
-      // setError(true)
-    }
+    validateInputText(taskText)
   }
 
   const createTask = (text: string) => {
@@ -73,6 +72,7 @@ const Todo: React.FC = () => {
     <div className='todo'>
       <TodoInput
         value={taskText}
+        error={error}
         onChange={handleInputChange}
         onKeyDown={handleInputKey}
         onClick={handleInputAdd}

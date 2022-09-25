@@ -3,6 +3,8 @@
 }
 
 .title {
+  user-select: none;
+
   font-family: 'Permanent Marker';
   font-size: 5rem;
   line-height: 5rem;

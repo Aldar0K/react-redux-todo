@@ -1,0 +1,11 @@
+.todo__error {
+  padding: 1rem;
+
+  user-select: none;
+
+  font-family: 'Indie Flower';
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  color: rgb(168, 31, 31);
+}
