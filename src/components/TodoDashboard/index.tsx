@@ -14,15 +14,15 @@ const TodoDashboard: React.FC<TodoDashboardProps> = ({ amount, activeFilter, onF
       <span className='todo__amount'>{`${amount} Tasks left`}</span>
       <div className='todo__filters'>
         <button
-          className={activeFilter === 'all' ? 'filter-btn filter-btn_active' : 'filter-btn'}
+          className={`button filter-btn ${activeFilter === 'all' ? 'filter-btn_active' : ''}`}
           onClick={() => onFilterChange('all')}
         >All</button>
         <button
-          className={activeFilter === 'active' ? 'filter-btn filter-btn_active' : 'filter-btn'}
+          className={`button filter-btn ${activeFilter === 'active' ? 'filter-btn_active' : ''}`}
           onClick={() => onFilterChange('active')}
         >Active</button>
         <button
-          className={activeFilter === 'completed' ? 'filter-btn filter-btn_active' : 'filter-btn'}
+          className={`button filter-btn ${activeFilter === 'completed' ? 'filter-btn_active' : ''}`}
           onClick={() => onFilterChange('completed')}
         >Completed</button>
       </div>

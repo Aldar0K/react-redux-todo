@@ -2,7 +2,6 @@
   display: flex;
   position: relative;
 
-  padding: 0 1rem;
   min-height: 3.5rem;
 
   justify-content: space-between;
@@ -11,16 +10,6 @@
   
   border-bottom: 1px solid #ededed;
   user-select: none;
-}
-
-.todo__text {
-  font-family: 'Indie Flower';
-  font-size: 1.8rem;
-  font-weight: 400;
-}
-
-.todo__text_completed {
-  text-decoration: line-through;
 }
 
 .todo__icon {
@@ -39,4 +28,18 @@
 
 .todo__icon_completed {
   background-image: url('../../assets/icons/dot-green.svg');
+}
+
+.todo__text {
+  font-family: 'Indie Flower';
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.todo__text_completed {
+  text-decoration: line-through;
+}
+
+.todo__delete {
+  background-color: #cf0f0f;
 }

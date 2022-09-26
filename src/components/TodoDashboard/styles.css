@@ -1,0 +1,33 @@
+.todo__dashboard {
+  display: flex;
+
+  margin-bottom: 1rem;
+
+  justify-content: space-between;
+}
+
+.todo__amount {
+  font-size: 1rem;
+}
+
+.todo__filters {
+  display: flex;
+
+  gap: .8rem;
+}
+
+.filter-btn {
+  padding: .2rem 1rem;
+
+  background: none;
+  border: 1px solid #000;
+  border-radius: 5%;
+
+  color: #000;
+}
+
+.filter-btn_active {
+  background-color: rgb(111, 180, 116);
+
+  color: #FFFFFF;
+}

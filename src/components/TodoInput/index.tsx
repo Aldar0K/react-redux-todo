@@ -28,7 +28,7 @@ const TodoInput: React.FC<TodoInputProps> = ({ value, onChange, onKeyDown, onCli
         >Add</button>
       </div>
       {error &&
-        <TodoError text='Please enter valid a task name' />
+        <TodoError text='Please enter a valid task name' />
       }
     </>
   );
